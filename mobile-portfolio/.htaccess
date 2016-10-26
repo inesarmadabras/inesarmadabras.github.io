@@ -1,3 +1,0 @@
-# enable expirations
-ExpiresActive On
-ExpiresDefault "access plus 3 months"
