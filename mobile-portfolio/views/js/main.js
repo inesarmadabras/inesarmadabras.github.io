@@ -1,23 +1,3 @@
-/*
-Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
-jank-free at 60 frames per second.
-
-There are two major issues in this code that lead to sub-60fps performance. Can
-you spot and fix both?
-
-
-Built into the code, you'll find a few instances of the User Timing API
-(window.performance), which will be console.log()ing frame rate data into the
-browser console. To learn more about User Timing API, check out:
-http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
-Creator:
-Cameron Pittman, Udacity Course Developer
-cameron *at* udacity *dot* com
-*/
-
-// As you may have realized, this website randomly generates pizzas.
-// Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
 pizzaIngredients.meats = [
   "Pepperoni",
@@ -42,7 +22,7 @@ pizzaIngredients.meats = [
   "Lamb",
   "Duck",
   "Soylent Green",
-  "Carne Asada",
+  "Carne Assada",
   "Soppressata Picante",
   "Coppa",
   "Pancetta",
@@ -205,10 +185,7 @@ function getAdj(x){
       "extinct", "galactic"];
       return scientific;
     default:
-      var scientific_default = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological",
-      "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar",
-      "extinct", "galactic"];
-      return scientific_default;
+      return scientific; //optimized
   }
 }
 
@@ -274,11 +251,7 @@ function getNoun(y) {
       "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
       return scifi;
     default:
-      var scifi_default = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy",
-      "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
-      "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
-      "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
-      return scifi_default;
+      return scifi; //optimized
   }
 }
 
@@ -384,7 +357,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.appendChild(pizzaImageContainer);
 
 
-  pizzaDescriptionContainer.style.width="65%";
+  pizzaDescriptionContainer.classList.add("col-md-6");   //CHANGED
 
   pizzaName = document.createElement("h4");
   pizzaName.innerHTML = randomName();
@@ -447,12 +420,22 @@ var resizePizzas = function(size) {
     return dx;
   }
 
+  var pizzaContainers = document.querySelectorAll(".randomPizzaContainer");   //OPTIMIZED
+  var pizzaContainersLength = pizzaContainers.length;
+  var dx = determineDx(pizzaContainers[0], size);
+  var newwidth = (pizzaContainers[0].offsetWidth + dx) + 'px';
+
   // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+  function changePizzaSizes(size) {  //OPTIMIZED
+    //pull pizzaContainers selector and length calculations
+    /*
+      for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    */
+    for (var i = 0; i < pizzaContainersLength; i++) {
+      pizzaContainers[i].style.width = newwidth;
     }
   }
 
@@ -497,18 +480,41 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+
+// optimize: initialize latest scroll position to 0 and tick to true
+var latestKnownScrollY = 0;
+var ticking = true;
+
+// optimize: scroll callback, bound to scroll window event listener
+function onScroll() {
+  latestKnownScrollY = window.scrollY;
+  requestTick();
+}
+
+// optimize: when scrolls, calls `requestAnimationFrame` only once
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(updatePositions);
+  }
+  ticking = true;
+}
+
+// updates positions of pizzas
 function updatePositions() {
+  // optimize
+  ticking = false;
   frame++;
   window.performance.mark("mark_start_frame");
-
+  // optimize
   var items = document.querySelectorAll('.mover');
+  var currentScrollY = latestKnownScrollY / 1250;
+  var phase;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    // optimize: insert currentScrollY variable
+    phase = Math.sin(currentScrollY + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
-  // User Timing API to the rescue again. Seriously, it's worth learning.
-  // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
   if (frame % 10 === 0) {
@@ -517,8 +523,8 @@ function updatePositions() {
   }
 }
 
-// runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+// runs on scroll, optimize: change callback function to `onScroll`
+window.addEventListener('scroll', onScroll);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
