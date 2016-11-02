@@ -10,12 +10,13 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
 
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+
   </head>
 
   <body>
@@ -33,45 +34,73 @@
 
       <section class="main_image row">
         <div class="col-md-12">
-          <img class="images img-responsive" src="images/main_image.png" alt="Main Image">
+          <!--<img class="images img-responsive" src="images/main_image.png" alt="Main Image">-->
         </div>
       </section>
 
       <section class="row">
         <div class="col-md-12">
-          <h2 class="text-muted">Featured Work</h2>
+          <h2 class="text-muted">Udacity Nanodegree Projects</h2>
+        </div>
+      </section>
+
+      <section class="projects row text-center">
+
+        <article class="col-md-6">
+          <img class="images img-responsive" src="images/f4.png" alt="Taxi vs Uber Game" data-toggle="modal" data-target="#project4">
+          <h3 class="imgtitle">Nanodegree: Taxi vs Uber Game</h3>
+          <p><a href="https://inesarmadabras.github.io/TaxiVSUber_Arcade">inesarmadabras.github.io/TaxiVSUber_Arcade</a></p>
+        </article>
+
+         <article class="col-md-6">
+          <img class="images img-responsive" src="images/f5.png" alt="Udacity Resume" data-toggle="modal" data-target="#project5">
+          <h3 class="imgtitle">Nanodegree: Taxi vs Uber Game</h3>
+          <p><a href="https://inesarmadabras.github.io/P2-Udacity-Resume/">inesarmadabras.github.io/P2-Udacity-Resume</a></p>
+        </article>
+      </section>
+
+      <section class="projects row text-center">
+
+       <article class="col-md-6">
+          <img class="images img-responsive" src="images/f6.png" alt="Neighborhood Map" data-toggle="modal" data-target="#project6">
+          <h3 class="imgtitle">Nanodegree: Neighborhood Map</h3>
+          <p><a href="https://inesarmadabras.github.io/Neighborhood-Map-Project/">inesarmadabras.github.io/Neighborhood-Map-Project</a></p>
+        </article>
+
+        <article class="col-md-6">
+          <img class="images img-responsive" src="images/f7.png" alt="Website Optimization" data-toggle="modal" data-target="#project7">
+          <h3 class="imgtitle">Nanodegree: Website Optimization</h3>
+          <p><a href="https://github.com/inesarmadabras/P4-Website-Optimization">github.com/inesarmadabras/P4-Website-Optimization</a></p>
+        </article>
+
+      </section>
+
+      <section class="row">
+        <div class="col-md-12">
+          <h2 class="text-muted">Other Projects</h2>
         </div>
       </section>
 
       <section class="projects row text-center">
       <!--cada row tem 12 colunas -->
-        <article class="col-md-6">
+        <article class="col-md-4">
           <img class="images img-responsive" src="images/f1.png" alt="My Site" data-toggle="modal" data-target="#project1">
           <h3 class="imgtitle">My Site</h3>
           <p><a href="http://inesarmadabras.6te.net/">inesarmadabras.6te.net</a></p>
         </article>
 
-        <article class="col-md-6">
+        <article class="col-md-4">
           <img class="images img-responsive" src="images/f2.png" alt="The Other" data-toggle="modal" data-target="#project2">
           <h3 class="imgtitle">The Others</h3>
           <p><a href="http://osoutros.rato-adcc.pt">osoutros.rato-adcc.pt</a></p>
         </article>
-      </section>
 
-      <section class="projects row text-center">
-        <article class="col-md-6">
+          <article class="col-md-4">
           <img class="images img-responsive" src="images/f3.png" alt="Newspapers" data-toggle="modal" data-target="#project3">
           <h3 class="imgtitle">Newspapers & +</h3>
           <p><a href="http://inesarmadabras.portfoliobox.net/jornaispublicaes">inesarmadabras.portfoliobox.net</a></p>
         </article>
-
-        <article class="col-md-6">
-          <img class="images img-responsive" src="http://placekitten.com/g/720/385" alt="cat" data-toggle="modal" data-target="#project4">
-          <h3>Yey. Cats.</h3>
-          <p><a href="nope.">nope.</a></p>
-        </article>
-
-      </section>
+        </section>
 
       <hr>
 
@@ -139,23 +168,86 @@
       </div>
     </div>
 
-    <!-- Modal Project 4-->
-    <div class="modal fade" id="project4" tabindex="-1" role="dialog" aria-labelledby="myModalcat" aria-hidden="true">
+        <!-- Modal Project 4-->
+    <div class="modal fade" id="project4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="myModalcat">Empty.</h4>
+            <h4 class="modal-title" id="myModalLabel4">Taxi VS Uber Arcade</h4>
           </div>
           <div class="modal-body">
-            <img class="img-responsive" src="http://placekitten.com/g/720/385" alt="cat">
-            Nothing!
+            <img class="img-responsive" src="images/f4.png" alt="printscreen Taxi VS Uber Arcade">
+            Taxi vs Uber Arcade is a variation of the classic Frogger arcade game....adapted to one of the hottest topics of the year: the war between Taxis and Uber! In this game, you can play with Uber, Cabify, or with the Secretary of State José Mendes, from Portugal. Made for Front-End Nanodegree - Udacity
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <a href="https://inesarmadabras.github.io/TaxiVSUber_Arcade" class="btn btn-default">Go</a>
           </div>
         </div>
       </div>
     </div>
+
+        <!-- Modal Project 5-->
+    <div class="modal fade" id="project5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel5">Udacity Resume</h4>
+          </div>
+          <div class="modal-body">
+            <img class="img-responsive" src="images/f5.png" alt="printscreen resume">
+            In this project, I had to build JSON objects, using jQuery’s functions, JavaScript methods and the Google Maps API.
+            <a href="https://github.com/inesarmadabras/P2-Udacity-Resume" class="btn btn-default">Check the repository here</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <a href="https://inesarmadabras.github.io/P2-Udacity-Resume" class="btn btn-default">Go</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+            <!-- Modal Project 6-->
+    <div class="modal fade" id="project6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel6" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel6">Neighborhood Map</h4>
+          </div>
+          <div class="modal-body">
+            <img class="img-responsive" src="images/f6.png" alt="printscreen resume">
+           The goal of this project is to develop a single-page application featuring a map of a neighborhood (In my case, Lisbon & Margem Sul). This project is built using <strong>Google Maps API</strong>, <strong>Google Street View Image API</strong>, <strong>Flickr API</strong> and <strong>knockoutjs framework</strong>.
+            <a href="https://github.com/inesarmadabras/Neighborhood-Map-Project/" class="btn btn-default">Check the repository here</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <a href="https://inesarmadabras.github.io/Neighborhood-Map-Project/" class="btn btn-default">Go</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+                <!-- Modal Project 7-->
+    <div class="modal fade" id="project7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel7" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel7">printscreen Website-Optimization</h4>
+          </div>
+          <div class="modal-body">
+            <img class="img-responsive" src="images/f7.png" alt="printscreen resume">
+           I had to optimize index.html to achieve a score of 90 in PageSpeed, and main.js to achieve 60 fps in pizza.html.
+           For this I used some techniques, such eliminate render-blocking JS and CSS, create minimized versions of all css and js files, use a strong compression rate in images and other techniques related to Cache Optimization.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <a href="https://github.com/inesarmadabras/P4-Website-Optimization/" class="btn btn-default">Go</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
   </body>
 </html>
