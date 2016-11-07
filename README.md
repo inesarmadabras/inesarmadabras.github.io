@@ -1,5 +1,5 @@
 # Portfolio Site
-### Front-End Web Developer Nanodegree - [Check the Project Review](https://review.udacity.com/#!/reviews/253945/shared)
+### Front-End Web Developer Nanodegree - [Check the Project Review](https://review.udacity.com/#!/reviews/253945/shared) - Out. 2016
 
 
 ## Project Overview
@@ -15,3 +15,8 @@ Point your browser to ![http://inesarmadabras.github.io](http://inesarmadabras.g
 * JavaScript
 * CSS
 * HTML
+
+## Updates (06/11/2016)
+* nav bar with Toggle navigation
+* backgrounds
+* sections: Intro & About me | Newspapers & + | Contacts
