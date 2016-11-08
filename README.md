@@ -20,3 +20,5 @@ Point your browser to ![http://inesarmadabras.github.io](http://inesarmadabras.g
 * nav bar with Toggle navigation
 * backgrounds
 * sections: Intro & About me | Newspapers & + | Contacts
+* Better code organization. 
+* Minor corrections(missing div's and id's)
