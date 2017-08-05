@@ -22,3 +22,8 @@ Point your browser to ![http://inesarmadabras.github.io](http://inesarmadabras.g
 * sections: Intro & About me | Newspapers & + | Contacts
 * Better code organization. 
 * Minor corrections(missing div's and id's)
+
+## Updates (05/08/2017)
+* now this is my main website
+* new CV
+* index update
